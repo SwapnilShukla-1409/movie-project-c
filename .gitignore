@@ -1,0 +1,68 @@
+--- Node.js ---
+
+Ignore all node_modules folders in frontend, backend, or anywhere else
+
+**/node_modules
+
+--- Secrets ---
+
+Ignore all .env files and their variants.
+
+These files contain your secret database passwords and API keys.
+
+**/.env
+**/.env.local
+**/.env.development
+**/.env.production
+**/.env.*.local
+
+Do NOT ignore the example file. This is safe to commit.
+
+!**/.env.example
+
+--- Logs ---
+
+Ignore log files from npm, yarn, etc.
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+--- Frontend (Vite/React) ---
+
+Ignore the production build output folder
+
+/frontend/dist
+
+Ignore the Vite cache
+
+/frontend/.vite/
+
+Ignore ESLint cache
+
+/frontend/.eslintcache
+
+--- Backend (Node/Prisma) ---
+
+Ignore the production build output folder
+
+/backend/dist
+
+--- OS / IDE ---
+
+macOS
+
+.DS_Store
+
+Windows
+
+Thumbs.db
+
+VS Code
+
+.vscode/
+
+JetBrains (WebStorm, IntelliJ)
+
+.idea/

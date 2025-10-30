@@ -1,0 +1,33 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  movies   Movie[] // A user can have many movies
+}
+
+model Movie {
+  id        Int     @id @default(autoincrement())
+  title     String
+  type      String // "Movie" or "TV Show"
+  director  String
+  budget    String
+  location  String
+  duration  String
+  year      String
+  posterUrl String? // Optional: for bonus
+  
+  // Relation to User
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int
+}

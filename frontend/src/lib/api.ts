@@ -5,7 +5,7 @@ import { movieSchema, loginSchema, registerSchema } from './schemas'; // We'll c
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+ baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
   withCredentials: true,
   // Add additional headers for better error handling
   validateStatus: (status) => status < 500, // Resolve only if the status code is less than 500

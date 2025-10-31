@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
   origin: function(origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) {
     // Allow requests from localhost:5173 and localhost:5174
-    const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174','https://movie-project-c.netlify.app/'];
+    const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174','https://movie-project-completed.netlify.app/'];
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {

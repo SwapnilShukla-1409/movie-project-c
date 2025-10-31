@@ -32,11 +32,14 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1d' });
 
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 24 * 60 * 60 * 1000,
-    });
+    // inside your login handler
+res.cookie('token', token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production', // must be true in prod (HTTPS)
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // important for cross-site requests
+  maxAge: 24 * 60 * 60 * 1000,
+});
+
 
     res.json({ id: user.id, email: user.email });
   } catch (error) {
